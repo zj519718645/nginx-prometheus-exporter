@@ -1,6 +1,6 @@
-VERSION = 0.9.0
+VERSION = 0.9.1
 TAG = $(VERSION)
-PREFIX = nginx/nginx-prometheus-exporter
+PREFIX = zj519718645/nginx-prometheus-exporter
 
 DOCKERFILEPATH = build
 DOCKERFILE = Dockerfile
