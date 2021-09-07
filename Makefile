@@ -1,4 +1,4 @@
-VERSION = v0.9.3
+VERSION = v0.9.4
 TAG = $(VERSION)
 PREFIX = zj519718645/nginx-prometheus-exporter
 
@@ -29,7 +29,7 @@ test:
 
 .PHONY: container
 container:
-	docker build -e GOPROXY="https://goproxy.cn" --build-arg VERSION=$(VERSION) --build-arg GIT_COMMIT=$(GIT_COMMIT) --build-arg DATE=$(DATE) --target container -f $(DOCKERFILEPATH)/$(DOCKERFILE) -t $(PREFIX):$(TAG) .
+	docker build --build-arg VERSION=$(VERSION) --build-arg GIT_COMMIT=$(GIT_COMMIT) --build-arg DATE=$(DATE) --target container -f $(DOCKERFILEPATH)/$(DOCKERFILE) -t $(PREFIX):$(TAG) .
 
 .PHONY: push
 push: container
