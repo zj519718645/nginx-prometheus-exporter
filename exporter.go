@@ -296,6 +296,12 @@ For NGINX, the stub_status page must be available through the URI. For NGINX Plu
 
 func main() {
 	flag.Parse()
+	//set scrapuri base on pod hostname
+	var scrapeURIs = strings.Split(os.Getenv("SCRAPE_URI"), ",")
+	var exporterHosts = strings.Split(os.Getenv("HOSTNAME"), "-")
+	var statefulsetSequenceStr = exporterHosts[len(exporterHosts)-1]
+	statefulsetSequenceId, _ := strconv.ParseInt(statefulsetSequenceStr, 10, 64)
+	*scrapeURI = scrapeURIs[statefulsetSequenceId]
 
 	if *displayVersion {
 		fmt.Printf("NGINX Prometheus Exporter version=%v commit=%v date=%v\n", version, commit, date)
