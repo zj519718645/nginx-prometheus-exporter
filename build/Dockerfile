@@ -3,7 +3,7 @@ ARG VERSION
 ARG GIT_COMMIT
 ARG DATE
 ARG TARGETARCH
-
+ENV GOPROXY https://goproxy.cn
 WORKDIR /go/src/github.com/nginxinc/nginx-prometheus-exporter
 
 FROM base as builder
