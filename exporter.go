@@ -302,6 +302,7 @@ func main() {
 	var statefulsetSequenceStr = exporterHosts[len(exporterHosts)-1]
 	statefulsetSequenceId, _ := strconv.ParseInt(statefulsetSequenceStr, 10, 64)
 	*scrapeURI = scrapeURIs[statefulsetSequenceId]
+	constLabels.labels["host"] = scrapeURIs[statefulsetSequenceId]
 
 	if *displayVersion {
 		fmt.Printf("NGINX Prometheus Exporter version=%v commit=%v date=%v\n", version, commit, date)
